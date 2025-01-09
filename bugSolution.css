@@ -1,0 +1,28 @@
+/* bugSolution.css */
+.parent {
+  width: 500px; /* Explicitly set width */
+  height: 300px; /* Explicitly set height */
+}
+
+.child {
+  width: calc(100% - 20px); /* Subtraction works correctly now */
+  height: calc(50% - 10px); /* Parent dimensions are respected */
+  background-color: lightblue;
+}
+
+.another-child {
+  width: calc((100% - 20px) / 2); /* Correct order of operations with parentheses*/
+  height: calc(50% - 10px);
+  background-color: lightcoral;
+}
+
+/* The following demonstrates a case where using calc may lead to an unexpected behavior */
+.problematic-parent {
+  /* Width not defined */
+}
+
+.problematic-child {
+  width: calc(100% - 20px); /* Width is likely to be different from expectations */
+  height: 100px;
+  background-color: lightgray;
+}
